@@ -114,3 +114,7 @@ const businesses = [
   export const logBusinesses = () => {
       return businesses.slice()
   }
+
+  export const findBusinessBelowName = (findBusiness) => {
+    return businesses.find (business => business.companyName.includes(findBusiness))
+}

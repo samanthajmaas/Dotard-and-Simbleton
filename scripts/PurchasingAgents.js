@@ -3,19 +3,13 @@ import {purchasingAgentsHTML} from "./PurchasingAgentsHTML.js"
 
 
 export const purchasingAgentsFunction = () => {
-    const contentElement = document.querySelector(".main")
+    const contentElement = document.querySelector(".agents")
     const businesses = logBusinesses()
+    contentElement.innerHTML += "<h1>Purchasing Agents</h1>"
     const purchasingAgents = businesses.map(businessesObject => {
         return businessesObject
     })
-    let purchasingAgentsHTMLRepresentations = ""
-
     for (const business of purchasingAgents) {
-        purchasingAgentsHTMLRepresentations += purchasingAgentsHTML(business)
+        contentElement.innerHTML += purchasingAgentsHTML(business)
     }
-    contentElement.innerHTML += `
-    <article class="agents">
-        <h2>Purchasing Agents</h2>
-        ${purchasingAgentsHTMLRepresentations}
-    </article>`
 }
