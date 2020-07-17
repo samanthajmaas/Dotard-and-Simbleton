@@ -6,7 +6,7 @@ export const purchasingAgentsFunction = () => {
     const contentElement = document.querySelector(".main")
     const businesses = logBusinesses()
     const purchasingAgents = businesses.map(businessesObject => {
-        return businessesObject.purchasingAgent
+        return businessesObject
     })
     let purchasingAgentsHTMLRepresentations = ""
 
