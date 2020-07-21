@@ -117,14 +117,14 @@ const businesses = [
 
   export const findSearchItems = (findInfo) => {
     const searchObj = businesses.find (business => {
-      if (business.purchasingAgent.nameFirst.includes(findInfo)){
-      return business.purchasingAgent.nameFirst.includes(findInfo)
+      if (business.purchasingAgent.nameFirst.toLowerCase().includes(findInfo)){
+      return business
       }
-      else if (business.purchasingAgent.nameLast.includes(findInfo)){
-        return business.purchasingAgent.nameLast.includes(findInfo)
+      else if (business.purchasingAgent.nameLast.toLowerCase().includes(findInfo)){
+        return business
       }
-      else if (business.companyName.includes(findInfo)){
-        return business.companyName.includes(findInfo)
+      else if (business.companyName.toLowerCase().includes(findInfo)){
+        return business
       }
     })
     return searchObj
