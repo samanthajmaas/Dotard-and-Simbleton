@@ -115,6 +115,18 @@ const businesses = [
       return businesses.slice()
   }
 
-  export const findBusinessBelowName = (findBusiness) => {
-    return businesses.find (business => business.companyName.includes(findBusiness))
-}
+  export const findSearchItems = (findInfo) => {
+    const searchObj = businesses.find (business => {
+      if (business.purchasingAgent.nameFirst.includes(findInfo)){
+      return business.purchasingAgent.nameFirst.includes(findInfo)
+      }
+      else if (business.purchasingAgent.nameLast.includes(findInfo)){
+        return business.purchasingAgent.nameLast.includes(findInfo)
+      }
+      else if (business.companyName.includes(findInfo)){
+        return business.companyName.includes(findInfo)
+      }
+    })
+    return searchObj
+  }
+  

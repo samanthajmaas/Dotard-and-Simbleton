@@ -1,4 +1,4 @@
-import { logBusinesses } from "./BusinessProvider.js"
+import { logBusinesses} from "./BusinessProvider.js"
 import {purchasingAgentsHTML} from "./PurchasingAgentsHTML.js"
 
 
@@ -13,3 +13,4 @@ export const purchasingAgentsFunction = () => {
         contentElement.innerHTML += purchasingAgentsHTML(business)
     }
 }
+

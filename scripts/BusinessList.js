@@ -1,4 +1,4 @@
-import { logBusinesses, findBusinessBelowName } from "./BusinessProvider.js"
+import { logBusinesses, findSearchItems } from "./BusinessProvider.js"
 import { businessHTML } from "./Business.js"
 
 const contentElement = document.querySelector(".businesses")
@@ -11,27 +11,25 @@ export const allBusinesses = () => {
     })
 }
 
-const companySearchResultArticle = document.querySelector(".foundCompanies")
+const searchResult = document.querySelector(".foundInfo")
 
-document
-    .querySelector("#companySearch")
-    .addEventListener("keypress", keyPressEvent => {
+document.querySelector("#searchBar").addEventListener("keypress", keyPressEvent => {
         if (keyPressEvent.charCode === 13) {
 
-            const foundBusiness = findBusinessBelowName(keyPressEvent.target.value)
+            const foundResults = findSearchItems(keyPressEvent.target.value)
 
-            companySearchResultArticle.innerHTML = `
-                <h2>
-                ${foundBusiness.companyName}
-                </h2>
+            searchResult.innerHTML = `
+                <h3>
+                ${foundResults.companyName}
+                </h3>
                 <section>
-                ${foundBusiness.addressFullStreet}
-
+                ${foundResults.purchasingAgent.nameFirst} ${foundResults.purchasingAgent.nameLast}
                 </section>
                 <section>
-                ${foundBusiness.addressCity},
-                ${foundBusiness.addressStateCode}
-                ${foundBusiness.addressZipCode}
+                ${foundResults.addressFullStreet}
+                </section>
+                <section>
+                ${foundResults.addressCity}, ${foundResults.addressStateCode} ${foundResults.addressZipCode}
                 </section>
             `;
         }
